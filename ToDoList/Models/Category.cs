@@ -11,10 +11,10 @@ namespace ToDoList.Models
 
     public Category(string categoryName)
     {
-      Name = categoryName;
-      _instances.Add(this);
-      Id = _instances.Count;
-      Items = new List<Item>{};
+      Name = categoryName; // assigned as an argument for constructor
+      _instances.Add(this); // assigned automatically
+      Id = _instances.Count;// assigned automatically
+      Items = new List<Item>{};// assigned automatically
     }
 
     public static void ClearAll()
@@ -30,6 +30,11 @@ namespace ToDoList.Models
     public static Category Find(int searchId)
     {
       return _instances[searchId-1];
+    }
+
+    public void AddItem(Item item) //accepts an Item object and then use built-in List Add() method to save the item intot he Items property of a specific category. 
+    {
+      Items.Add(item);
     }
   }
 }
